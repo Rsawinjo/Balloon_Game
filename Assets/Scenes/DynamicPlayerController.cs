@@ -28,7 +28,8 @@ public class DynamicPlayerController : MonoBehaviour
     }
 
     public float increaseWeight;
-    public float speed = 1f;
+    public float moveSpeed = 1f;
+    public float jumpSpeed = 15f;
     public float maxHor = 5f;
     public float maxHorizontalMovementVelocity = 7.0f;
     public float maxDistanceFromGroundJumping = 0.2f;
@@ -75,20 +76,20 @@ public class DynamicPlayerController : MonoBehaviour
 
         if (wantLeft)
         {
-            velocityDelta += Vector2.left * speed;
+            velocityDelta += Vector2.left * moveSpeed;
 
         }
 
         if (wantRight)
         {
-            velocityDelta += Vector2.right * speed;
+            velocityDelta += Vector2.right * moveSpeed;
         }
 
         if (canJump && Input.GetKeyDown(KeyCode.Space)) 
         {
             multiJumps += 1;
             lastMultiJumpTime = Time.time;
-            velocityDelta += Vector2.up * speed;
+            velocityDelta += Vector2.up * jumpSpeed;
 
 
         }
@@ -111,9 +112,15 @@ private bool IsGrounded()
         
         if (hit.collider != null)
         {
+            this.transform.SetParent(hit.collider.transform, true);
             return true;
         }
-        return false;
+        else
+        {
+            this.transform.SetParent(null, true);
+            return false;
+        }
+        
         
         
 }

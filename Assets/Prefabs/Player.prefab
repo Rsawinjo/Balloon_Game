@@ -198,9 +198,9 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 6
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -218,9 +218,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9103e7ce5df81b14aa0898d814c3244f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
+  increaseWeight: 0
+  moveSpeed: 6
+  jumpSpeed: 30
   maxHor: 6
   maxHorizontalMovementVelocity: 10
-  maxDistanceFromGroundJumping: 0.2
+  maxDistanceFromGroundJumping: 0.02
   multiJumpCount: 2
   multiJumpChargeResetTimer: 0.2
